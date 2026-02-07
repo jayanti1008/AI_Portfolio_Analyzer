@@ -1,7 +1,7 @@
 import os
 import yfinance as yf
 from typing import Dict
-from openai import OpenAI
+import openai  # ✅ Changed from "from openai import OpenAI"
 
 class AIPortfolioAnalyzer:
     def __init__(self, api_key: str = None):
@@ -9,7 +9,9 @@ class AIPortfolioAnalyzer:
             api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise ValueError("OpenAI API key is required")
-        self.client = OpenAI(api_key=api_key)
+        
+        # ✅ Set API key using current SDK
+        openai.api_key = api_key
 
         # Predefined stock data
         self.stocks = {
