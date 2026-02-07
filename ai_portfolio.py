@@ -1,7 +1,7 @@
 import os
 import yfinance as yf
 from typing import Dict
-import openai  # ✅ Changed from "from openai import OpenAI"
+import openai  
 
 class AIPortfolioAnalyzer:
     def __init__(self, api_key: str = None):
